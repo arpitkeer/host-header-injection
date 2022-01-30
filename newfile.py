@@ -1,9 +1,11 @@
 import requests
 import re
-
+import sys
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 lines = []
-Hackable =[]
-print('enter lines:-')
+hack = []
+print('enter all urls:-')
 while True:
     line = input()
     if line:
@@ -14,10 +16,10 @@ y=len(lines)
 for i in range(0,y):
     x=lines[i]
     url= "https://"+x
-    headers={'X-Forwarded-Host': 'https://exploit-acab1f521fe4b5b7c0d35826016f0044.web-security-academy.net/'}
+    headers={'X-Forwarded-Host': 'example.com'}
     try:
-    	r = requests.get(url,timeout=10)
-    	r.raise_for_status()
+        r = requests.get(url,timeout=10, verify=False)
+        r.raise_for_status()
     except requests.exceptions.RequestException as err:
     	print ("OOps: Something Else",err)
     except requests.exceptions.HTTPError as errh:
@@ -29,13 +31,13 @@ for i in range(0,y):
     y=r.status_code
     if y==200:
  	   	    z=r.text
- 	   	    b=(re.search('exploit.ac', z, re.IGNORECASE))
+ 	   	    b=(re.search('example.com', z, re.IGNORECASE))
  	   	    if b:
  	   	    	print("nice")
  	   	    	print(url)
- 	   	    	Hackable += url
+ 	   	    	hack += [url]
  	   	    else:
  	   	    	print("sorry")
     else:
         	print("status error")
-print(Hackable)
+print(hack)
