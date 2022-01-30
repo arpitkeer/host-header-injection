@@ -30,7 +30,7 @@ for i in range(0,y):
     	print ("Error Connecting:",errc)
     except requests.exceptions.Timeout as errt:
     	print ("Timeout Error:",errt)     
-    	y=r.status_code
+    y=r.status_code
     if y==200:
  	   	    z=r.text
  	   	    b=(re.search('exploit-ac.com', z, re.IGNORECASE))
