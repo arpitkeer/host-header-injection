@@ -4,7 +4,8 @@ import sys
 import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 lines = []
-print('enter all urls:-')
+Hackable = []
+print('enter all urls(separated by new line:-')
 while True:
     line = input()
     if line:
@@ -15,7 +16,7 @@ y=len(lines)
 for i in range(0,y):
     x=lines[i]
     url= "https://"+x
-    headers={'X-Forwarded-Host': 'example.com'}
+    headers={'X-Forwarded-Host': 'exploit-ac631f9b1e71de74c0a80c8c01f10046.web-security-academy.net/'}
     try:
         r = requests.get(url,timeout=10, verify=False)
         r.raise_for_status()
@@ -30,11 +31,13 @@ for i in range(0,y):
     y=r.status_code
     if y==200:
  	   	    z=r.text
- 	   	    b=(re.search('example.com', z, re.IGNORECASE))
+ 	   	    b=(re.search('exploit-ac631', z, re.IGNORECASE))
  	   	    if b:
  	   	    	print("nice")
  	   	    	print(url)
+                        Hackable += [url]
  	   	    else:
  	   	    	print("sorry")
     else:
         	print("status error")
+print(Hackable)
