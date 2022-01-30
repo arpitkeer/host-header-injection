@@ -16,7 +16,7 @@ y=len(lines)
 for i in range(0,y):
     x=lines[i]
     url= "https://"+x
-    headers={'X-Forwarded-Host': 'example.com'}
+    headers={'X-Forwarded-Host': 'exploit-ac.com', 'X-Forwarded-For': 'exploit-ac.com', 'X-Client-IP': 'exploit-ac.com', 'X-Remote-IP': 'exploit-ac.com', 'X-Remote-Addr': 'exploit-ac.com', 'X-Host': 'exploit-ac.com'}
     try:
         r = requests.get(url,timeout=10, verify=False)
         r.raise_for_status()
@@ -31,7 +31,7 @@ for i in range(0,y):
     y=r.status_code
     if y==200:
  	   	    z=r.text
- 	   	    b=(re.search('example.com', z, re.IGNORECASE))
+ 	   	    b=(re.search('exploit-ac.com', z, re.IGNORECASE))
  	   	    if b:
  	   	    	print("nice")
  	   	    	print(url)
