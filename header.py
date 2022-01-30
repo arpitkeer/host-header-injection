@@ -16,7 +16,9 @@ y=len(lines)
 for i in range(0,y):
     x=lines[i]
     url= "https://"+x
-    headers={'X-Forwarded-Host': 'exploit-ac.com', 'X-Forwarded-For': 'exploit-ac.com', 'X-Client-IP': 'exploit-ac.com', 'X-Remote-IP': 'exploit-ac.com', 'X-Remote-Addr': 'exploit-ac.com', 'X-Host': 'exploit-ac.com'}
+    headers={'X-Forwarded-Host': 'exploit-ac.com', 
+    'X-Forwarded-For': 'exploit-ac.com', 
+    'X-Host': 'exploit-ac.com'}
     try:
         r = requests.get(url,timeout=10, verify=False)
         r.raise_for_status()
@@ -28,7 +30,7 @@ for i in range(0,y):
     	print ("Error Connecting:",errc)
     except requests.exceptions.Timeout as errt:
     	print ("Timeout Error:",errt)     
-    y=r.status_code
+    	y=r.status_code
     if y==200:
  	   	    z=r.text
  	   	    b=(re.search('exploit-ac.com', z, re.IGNORECASE))
@@ -39,5 +41,5 @@ for i in range(0,y):
  	   	    else:
  	   	    	print("sorry")
     else:
-        	print("status error")
+        	print("status error", y)
 print(hack)
