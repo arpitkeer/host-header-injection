@@ -5,7 +5,7 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 lines = []
 hack = []
-print('enter all urls:-')
+print('enter all urls separated by new line:-')
 while True:
     line = input()
     if line:
@@ -30,8 +30,8 @@ for i in range(0,y):
     	print ("Error Connecting:",errc)
     except requests.exceptions.Timeout as errt:
     	print ("Timeout Error:",errt)     
-    y=r.status_code
-    if y==200:
+    	y=r.status_code
+    	if y==200:
  	   	    z=r.text
  	   	    b=(re.search('exploit-ac.com', z, re.IGNORECASE))
  	   	    if b:
@@ -40,6 +40,6 @@ for i in range(0,y):
  	   	    	hack += [url]
  	   	    else:
  	   	    	print("sorry")
-    else:
+    	else:
         	print("status error", y)
 print(hack)
