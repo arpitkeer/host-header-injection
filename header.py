@@ -18,7 +18,7 @@ for i in range(0,y):
     url= "https://"+x
     headers={'X-Forwarded-Host': 'exploit-ac.com'}
     try:
-        r = requests.get(url,timeout=10, verify=False)
+        r = requests.get(url,timeout=10, verify=False, headers=headers)
         r.raise_for_status()
     except requests.exceptions.RequestException as err:
     	print ("OOps: Something Else")
@@ -45,7 +45,7 @@ for i in range(0,y):
     url= "https://"+x
     headers={'X-Forwarded-For': 'exploit-ac.com'}
     try:
-        r = requests.get(url,timeout=10, verify=False)
+        r = requests.get(url,timeout=10, verify=False, headers=headers)
         r.raise_for_status()
     except requests.exceptions.RequestException as err:
     	print ("OOps: Something Else")
@@ -72,7 +72,7 @@ for i in range(0,y):
     url= "https://"+x
     headers={'X-Host': 'exploit-ac.com'}
     try:
-        r = requests.get(url,timeout=10, verify=False)
+        r = requests.get(url,timeout=10, verify=False, headers=headers)
         r.raise_for_status()
     except requests.exceptions.RequestException as err:
     	print ("OOps: Something Else")
