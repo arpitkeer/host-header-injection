@@ -21,13 +21,13 @@ for i in range(0,y):
         r = requests.get(url,timeout=10, verify=False)
         r.raise_for_status()
     except requests.exceptions.RequestException as err:
-    	print ("OOps: Something Else",err)
+    	#print ("OOps: Something Else",err)
     except requests.exceptions.HTTPError as errh:
-    	print ("Http Error:",errh)
+    	#print ("Http Error:",errh)
     except requests.exceptions.ConnectionError as errc:
-    	print ("Error Connecting:",errc)
+    	#print ("Error Connecting:",errc)
     except requests.exceptions.Timeout as errt:
-    	print ("Timeout Error:",errt)     
+    	#print ("Timeout Error:",errt)     
     	y=r.status_code
     	if y==200:
  	   	    z=r.text
@@ -48,13 +48,13 @@ for i in range(0,y):
         r = requests.get(url,timeout=10, verify=False)
         r.raise_for_status()
     except requests.exceptions.RequestException as err:
-    	print ("OOps: Something Else",err)
+    	#print ("OOps: Something Else",err)
     except requests.exceptions.HTTPError as errh:
-    	print ("Http Error:",errh)
+    	#print ("Http Error:",errh)
     except requests.exceptions.ConnectionError as errc:
-    	print ("Error Connecting:",errc)
+    	$print ("Error Connecting:",errc)
     except requests.exceptions.Timeout as errt:
-    	print ("Timeout Error:",errt)     
+    	#print ("Timeout Error:",errt)     
     	y=r.status_code
     	if y==200:
  	   	    z=r.text
@@ -75,13 +75,13 @@ for i in range(0,y):
         r = requests.get(url,timeout=10, verify=False)
         r.raise_for_status()
     except requests.exceptions.RequestException as err:
-    	print ("OOps: Something Else",err)
+    	#print ("OOps: Something Else",err)
     except requests.exceptions.HTTPError as errh:
-    	print ("Http Error:",errh)
+    	#print ("Http Error:",errh)
     except requests.exceptions.ConnectionError as errc:
-    	print ("Error Connecting:",errc)
+    	$print ("Error Connecting:",errc)
     except requests.exceptions.Timeout as errt:
-    	print ("Timeout Error:",errt)     
+    	#print ("Timeout Error:",errt)     
     	y=r.status_code
     	if y==200:
  	   	    z=r.text
